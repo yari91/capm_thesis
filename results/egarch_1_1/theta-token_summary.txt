@@ -1,0 +1,25 @@
+                     Constant Mean - EGARCH Model Results                     
+==============================================================================
+Dep. Variable:            theta-token   R-squared:                       0.000
+Mean Model:             Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                     EGARCH   Log-Likelihood:               -2465.73
+Distribution:                  Normal   AIC:                           4939.47
+Method:            Maximum Likelihood   BIC:                           4957.84
+                                        No. Observations:                  731
+Date:                Thu, Mar 09 2023   Df Residuals:                      730
+Time:                        13:46:00   Df Model:                            1
+                               Mean Model                               
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+mu             0.5420  6.085e-03     89.068      0.000 [  0.530,  0.554]
+                              Volatility Model                             
+===========================================================================
+                 coef    std err          t      P>|t|     95.0% Conf. Int.
+---------------------------------------------------------------------------
+omega          0.3564      0.222      1.605      0.109 [-7.892e-02,  0.792]
+alpha[1]       0.1523  7.005e-02      2.175  2.966e-02  [1.503e-02,  0.290]
+beta[1]        0.9113  5.699e-02     15.990  1.512e-57    [  0.800,  1.023]
+===========================================================================
+
+Covariance estimator: robust

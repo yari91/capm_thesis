@@ -1,0 +1,25 @@
+                     Constant Mean - EGARCH Model Results                     
+==============================================================================
+Dep. Variable:              enjincoin   R-squared:                       0.000
+Mean Model:             Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                     EGARCH   Log-Likelihood:               -2449.95
+Distribution:                  Normal   AIC:                           4907.90
+Method:            Maximum Likelihood   BIC:                           4926.28
+                                        No. Observations:                  731
+Date:                Thu, Mar 09 2023   Df Residuals:                      730
+Time:                        13:45:58   Df Model:                            1
+                               Mean Model                               
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+mu             0.3140      0.224      1.400      0.162 [ -0.126,  0.754]
+                              Volatility Model                             
+===========================================================================
+                 coef    std err          t      P>|t|     95.0% Conf. Int.
+---------------------------------------------------------------------------
+omega          0.0856  7.718e-02      1.109      0.268 [-6.569e-02,  0.237]
+alpha[1]       0.1947  7.243e-02      2.688  7.195e-03  [5.270e-02,  0.337]
+beta[1]        0.9827  1.894e-02     51.890      0.000    [  0.946,  1.020]
+===========================================================================
+
+Covariance estimator: robust

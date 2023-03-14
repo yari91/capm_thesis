@@ -1,0 +1,25 @@
+                     Constant Mean - EGARCH Model Results                     
+==============================================================================
+Dep. Variable:           bitcoin-gold   R-squared:                       0.000
+Mean Model:             Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                     EGARCH   Log-Likelihood:               -2282.23
+Distribution:                  Normal   AIC:                           4572.46
+Method:            Maximum Likelihood   BIC:                           4590.84
+                                        No. Observations:                  731
+Date:                Thu, Mar 09 2023   Df Residuals:                      730
+Time:                        13:45:57   Df Model:                            1
+                               Mean Model                               
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+mu             0.0605      0.287      0.211      0.833 [ -0.503,  0.624]
+                            Volatility Model                            
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+omega          0.1606      0.817      0.197      0.844 [ -1.440,  1.761]
+alpha[1]       0.2474      0.796      0.311      0.756 [ -1.314,  1.808]
+beta[1]        0.9620      0.211      4.554  5.261e-06 [  0.548,  1.376]
+========================================================================
+
+Covariance estimator: robust

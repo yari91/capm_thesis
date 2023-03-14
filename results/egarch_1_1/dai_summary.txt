@@ -1,0 +1,27 @@
+                     Constant Mean - EGARCH Model Results                     
+==============================================================================
+Dep. Variable:                    dai   R-squared:                       0.000
+Mean Model:             Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                     EGARCH   Log-Likelihood:               -528.906
+Distribution:                  Normal   AIC:                           1065.81
+Method:            Maximum Likelihood   BIC:                           1084.19
+                                        No. Observations:                  731
+Date:                Thu, Mar 09 2023   Df Residuals:                      730
+Time:                        13:45:58   Df Model:                            1
+                                   Mean Model                                  
+===============================================================================
+                  coef    std err          t      P>|t|        95.0% Conf. Int.
+-------------------------------------------------------------------------------
+mu         -7.7397e-03  3.939e-03     -1.965  4.945e-02 [-1.546e-02,-1.876e-05]
+                               Volatility Model                               
+==============================================================================
+                 coef    std err          t      P>|t|        95.0% Conf. Int.
+------------------------------------------------------------------------------
+omega         -0.0100  5.042e-10 -1.990e+07      0.000 [-1.003e-02,-1.003e-02]
+alpha[1]      -0.0376  6.528e-04    -57.522      0.000 [-3.883e-02,-3.627e-02]
+beta[1]        0.9951  3.131e-09  3.178e+08      0.000       [  0.995,  0.995]
+==============================================================================
+
+Covariance estimator: robust
+WARNING: The optimizer did not indicate successful convergence. The message was Iteration limit reached.
+See convergence_flag.

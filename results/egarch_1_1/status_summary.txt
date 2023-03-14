@@ -1,0 +1,25 @@
+                     Constant Mean - EGARCH Model Results                     
+==============================================================================
+Dep. Variable:                 status   R-squared:                       0.000
+Mean Model:             Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                     EGARCH   Log-Likelihood:               -2451.22
+Distribution:                  Normal   AIC:                           4910.44
+Method:            Maximum Likelihood   BIC:                           4928.82
+                                        No. Observations:                  731
+Date:                Thu, Mar 09 2023   Df Residuals:                      730
+Time:                        13:46:00   Df Model:                            1
+                               Mean Model                               
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+mu             0.2603      0.383      0.681      0.496 [ -0.489,  1.010]
+                            Volatility Model                            
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+omega          0.0750      0.196      0.383      0.702 [ -0.309,  0.459]
+alpha[1]       0.1250      0.186      0.672      0.502 [ -0.240,  0.490]
+beta[1]        0.9852  4.472e-02     22.031 1.469e-107 [  0.898,  1.073]
+========================================================================
+
+Covariance estimator: robust

@@ -1,0 +1,25 @@
+                     Constant Mean - EGARCH Model Results                     
+==============================================================================
+Dep. Variable:         nervos-network   R-squared:                       0.000
+Mean Model:             Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                     EGARCH   Log-Likelihood:               -2452.63
+Distribution:                  Normal   AIC:                           4913.26
+Method:            Maximum Likelihood   BIC:                           4931.63
+                                        No. Observations:                  731
+Date:                Thu, Mar 09 2023   Df Residuals:                      730
+Time:                        13:45:59   Df Model:                            1
+                               Mean Model                               
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+mu             0.1932  2.641e-03     73.177      0.000 [  0.188,  0.198]
+                              Volatility Model                             
+===========================================================================
+                 coef    std err          t      P>|t|     95.0% Conf. Int.
+---------------------------------------------------------------------------
+omega          0.0632  3.808e-02      1.661  9.676e-02 [-1.139e-02,  0.138]
+alpha[1]       0.1462  3.980e-02      3.674  2.388e-04  [6.822e-02,  0.224]
+beta[1]        0.9873  9.850e-03    100.230      0.000    [  0.968,  1.007]
+===========================================================================
+
+Covariance estimator: robust

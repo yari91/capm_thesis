@@ -1,0 +1,25 @@
+                     Constant Mean - EGARCH Model Results                     
+==============================================================================
+Dep. Variable:       hedera-hashgraph   R-squared:                       0.000
+Mean Model:             Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                     EGARCH   Log-Likelihood:               -2358.39
+Distribution:                  Normal   AIC:                           4724.78
+Method:            Maximum Likelihood   BIC:                           4743.15
+                                        No. Observations:                  731
+Date:                Thu, Mar 09 2023   Df Residuals:                      730
+Time:                        13:45:58   Df Model:                            1
+                               Mean Model                               
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+mu            -0.0550      0.263     -0.209      0.834 [ -0.571,  0.461]
+                              Volatility Model                             
+===========================================================================
+                 coef    std err          t      P>|t|     95.0% Conf. Int.
+---------------------------------------------------------------------------
+omega          0.1679  9.244e-02      1.816  6.935e-02 [-1.329e-02,  0.349]
+alpha[1]       0.2660      0.131      2.036  4.171e-02  [9.982e-03,  0.522]
+beta[1]        0.9618  2.050e-02     46.919      0.000    [  0.922,  1.002]
+===========================================================================
+
+Covariance estimator: robust

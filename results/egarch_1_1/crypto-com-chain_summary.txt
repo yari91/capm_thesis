@@ -1,0 +1,25 @@
+                     Constant Mean - EGARCH Model Results                     
+==============================================================================
+Dep. Variable:       crypto-com-chain   R-squared:                       0.000
+Mean Model:             Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                     EGARCH   Log-Likelihood:               -2240.88
+Distribution:                  Normal   AIC:                           4489.76
+Method:            Maximum Likelihood   BIC:                           4508.14
+                                        No. Observations:                  731
+Date:                Thu, Mar 09 2023   Df Residuals:                      730
+Time:                        13:45:58   Df Model:                            1
+                               Mean Model                               
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+mu             0.1563  5.958e-04    262.429      0.000 [  0.155,  0.158]
+                             Volatility Model                             
+==========================================================================
+                 coef    std err          t      P>|t|    95.0% Conf. Int.
+--------------------------------------------------------------------------
+omega          0.1741  6.159e-02      2.826  4.707e-03 [5.336e-02,  0.295]
+alpha[1]       0.3284  7.107e-02      4.622  3.809e-06   [  0.189,  0.468]
+beta[1]        0.9557  1.939e-02     49.294      0.000   [  0.918,  0.994]
+==========================================================================
+
+Covariance estimator: robust

@@ -1,0 +1,25 @@
+                     Constant Mean - EGARCH Model Results                     
+==============================================================================
+Dep. Variable:                 cortex   R-squared:                       0.000
+Mean Model:             Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                     EGARCH   Log-Likelihood:               -2549.32
+Distribution:                  Normal   AIC:                           5106.64
+Method:            Maximum Likelihood   BIC:                           5125.02
+                                        No. Observations:                  731
+Date:                Thu, Mar 09 2023   Df Residuals:                      730
+Time:                        13:45:57   Df Model:                            1
+                               Mean Model                               
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+mu             0.2261      0.355      0.637      0.524 [ -0.470,  0.922]
+                             Volatility Model                             
+==========================================================================
+                 coef    std err          t      P>|t|    95.0% Conf. Int.
+--------------------------------------------------------------------------
+omega          1.4160      1.291      1.097      0.273   [ -1.114,  3.946]
+alpha[1]       0.5784      0.187      3.094  1.975e-03   [  0.212,  0.945]
+beta[1]        0.6812      0.298      2.289  2.208e-02 [9.793e-02,  1.264]
+==========================================================================
+
+Covariance estimator: robust

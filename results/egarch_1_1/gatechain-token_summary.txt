@@ -1,0 +1,25 @@
+                     Constant Mean - EGARCH Model Results                     
+==============================================================================
+Dep. Variable:        gatechain-token   R-squared:                       0.000
+Mean Model:             Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                     EGARCH   Log-Likelihood:               -2167.18
+Distribution:                  Normal   AIC:                           4342.37
+Method:            Maximum Likelihood   BIC:                           4360.75
+                                        No. Observations:                  731
+Date:                Thu, Mar 09 2023   Df Residuals:                      730
+Time:                        13:45:58   Df Model:                            1
+                               Mean Model                               
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+mu             0.2300      0.193      1.191      0.234 [ -0.149,  0.608]
+                            Volatility Model                            
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+omega          0.1972      0.259      0.762      0.446 [ -0.310,  0.705]
+alpha[1]       0.4381      0.341      1.285      0.199 [ -0.230,  1.106]
+beta[1]        0.9601  6.143e-02     15.631  4.496e-55 [  0.840,  1.081]
+========================================================================
+
+Covariance estimator: robust

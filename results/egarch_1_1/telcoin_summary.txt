@@ -1,0 +1,25 @@
+                     Constant Mean - EGARCH Model Results                     
+==============================================================================
+Dep. Variable:                telcoin   R-squared:                       0.000
+Mean Model:             Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                     EGARCH   Log-Likelihood:               -2654.96
+Distribution:                  Normal   AIC:                           5317.93
+Method:            Maximum Likelihood   BIC:                           5336.30
+                                        No. Observations:                  731
+Date:                Thu, Mar 09 2023   Df Residuals:                      730
+Time:                        13:46:00   Df Model:                            1
+                               Mean Model                               
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+mu            -0.0705      0.323     -0.218      0.827 [ -0.704,  0.563]
+                            Volatility Model                            
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+omega          0.6161      0.188      3.277  1.050e-03 [  0.248,  0.985]
+alpha[1]       0.3277  9.384e-02      3.492  4.787e-04 [  0.144,  0.512]
+beta[1]        0.8670  4.039e-02     21.465 3.324e-102 [  0.788,  0.946]
+========================================================================
+
+Covariance estimator: robust
