@@ -1,5 +1,5 @@
 # Import all neccessary packages
-from extract_data import *
+from extract_data import coins_list
 from builtins import print
 from prettytable import from_csv
 from arch import arch_model
@@ -7,7 +7,7 @@ import plotly.express as px
 import numpy as np
 import seaborn as sns
 import matplotlib as plt
-
+import pandas as pd
 
 # RAW DATA MANIPULATION
 
