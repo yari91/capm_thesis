@@ -24,7 +24,7 @@ cix100 = pd.read_csv('data/cix100_coins.csv')
 coinsgecko = coinDataFrame.merge(cix100, how='inner', on='name')
 
 # get data
-coins_merge = coinsgecko.merge(cix100, how='right', on='name')
+coins_merge = coinsgecko.merge(cix100, how='inner', on='name')
 coins = coins_merge['id']
 # compiled for eliminating missing values
 # coins_filter = cix100[(~cix100.name.isin(coinsgecko.name))]
@@ -41,7 +41,7 @@ vsCurrencies = ['usd', 'eur']
 
 # simple price request - nested dictionary format
 
-simplePriceRequest = cg.get_price(ids=coins_list, vs_currencies='eur')
+# simplePriceRequest = cg.get_price(ids=coins_list, vs_currencies='eur')
 
 # simple data validation
 # print(len(simplePriceRequest))

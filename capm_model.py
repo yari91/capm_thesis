@@ -1,13 +1,13 @@
 # Import all neccessary packages
 from extract_data import coins_list
 from builtins import print
-from prettytable import from_csv
 from arch import arch_model
 import plotly.express as px
 import numpy as np
 import seaborn as sns
 import matplotlib as plt
 import pandas as pd
+
 
 # RAW DATA MANIPULATION
 
@@ -126,20 +126,22 @@ def daily_return(df):
 daily_returns = daily_return(cryptos_df)
 
 
+# print(daily_returns)
+
 # daily_returns.to_csv('data/daily_returns.csv')  # Save in csv (for Appendix)
 
 
-# CAPM E-GARCH(1,1) MODEL
+# CAPM E-GARCH(p,q) MODEL
 
 # Get parameters for all crypto in a Dataframe
-def constructEGARCH_1_1():
+def constructEGARCH(p, q):
     params = []
     pvals = []
     for x in daily_returns:
-        am = arch_model(daily_returns[x], vol='EGARCH', p=1, q=1, dist='normal')
+        am = arch_model(daily_returns[x], vol='EGARCH', p=p, q=q, dist='normal')
         garch_output = am.fit(disp="off", show_warning=False)
 
-        with open('results/egarch_1_1/' + x + '_summary.txt', 'w') as rs:
+        with open('results/egarch_'+str(p)+'_'+str(q)+'/' + x + '_summary.txt', 'w') as rs:
             rs.write(garch_output.summary().as_text())
 
         # exctract P-values
@@ -156,45 +158,19 @@ def constructEGARCH_1_1():
     return [params, pvals]
 
 
-# CAPM E-GARCH(2,1) MODEL
-
-# Get parameters for all crypto in a Dataframe
-# def constructEGARCH_2_1():
-#     params = []
-#     pvals = []
-#     for x in daily_returns:
-#         am = arch_model(daily_returns[x], vol='EGARCH', p=2, q=1, dist='normal')
-#         garch_output = am.fit(disp="off", show_warning=False)
-#
-#         with open('results/egarch_2_1' + x + '_summary.txt', 'w') as rs:
-#             rs.write(garch_output.summary().as_text())
-#
-#         # exctract P-values
-#         f_res_html = garch_output.summary().tables[2].as_html()
-#         f_trial = pd.read_html(f_res_html, header=0, index_col=0)[0].drop(labels='omega').rename(columns={'P>|t|': x},
-#                                                                                                  inplace=False)
-#
-#         # Rename parameter columns with name of crypto
-#         garch_output = pd.DataFrame(garch_output.params).rename(columns={'params': x}, inplace=False).drop(
-#             labels=["mu", "omega"])
-#         params.append(garch_output)
-#
-#         pvals.append(f_trial[x])
-#
-#     return [params, pvals]
-
 # Finalize Parameters table for selected cryptos
-
-[res_params_1_1, res_pvals_1_1] = constructEGARCH_1_1()
+pEgarch = 1
+qEgarch = 1
+[res_params, res_pvals] = constructEGARCH(pEgarch, qEgarch)
 
 # Concatenate parameters
-concat_params = pd.concat(res_params_1_1, axis=1).T.rename(columns={'alpha[1]': 'alpha', 'beta[1]': 'beta'})
+concat_params = pd.concat(res_params, axis=1).T.rename(columns={'alpha[1]': 'alpha', 'beta[1]': 'beta'})
 
 # Refine alpha and beta values that support theory
 refined_params = concat_params.query("alpha > 0 and beta > 0 and beta <= 1")
 
 # Concatenate p-values and final parameters table including all values
-concat_pvals = pd.concat(res_pvals_1_1, axis=1).T.rename(columns={'alpha[1]': 'P_alpha', 'beta[1]': 'P_beta'})
+concat_pvals = pd.concat(res_pvals, axis=1).T.rename(columns={'alpha[1]': 'P_alpha', 'beta[1]': 'P_beta'})
 refined_table = pd.concat([refined_params, concat_pvals], axis=1)
 
 # Place in order the columns
@@ -204,12 +180,10 @@ order_params = refined_table[["alpha", "P_alpha", "beta", "P_beta"]].dropna()
 cryptos_params = order_params.query("P_alpha != 0 and P_alpha < 0.05 and P_beta != 0 and P_beta < 0.05")
 
 # # Save final table as .xlsx and .csv
-# cryptos_params.to_excel(r'results/tables/egarch_1_1.xlsx', index=True)
-cryptos_params.to_csv('results/tables/egarch_1_1.csv', index=True)
-#
-# with open("results/tables/egarch_1_1.csv") as p:
-#     egarch_1_1 = from_csv(p)
+cryptos_params.to_csv('results/tables/egarch_'+str(pEgarch)+'_'+str(qEgarch)+'.csv', index=True)
+
+
 print(cryptos_params)
 
-correlation_matrix = daily_returns.corr()
-print(sns.heatmap(correlation_matrix))
+# correlation_matrix = daily_returns.corr()
+# print(sns.heatmap(correlation_matrix))
