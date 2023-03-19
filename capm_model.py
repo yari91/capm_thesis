@@ -2,12 +2,8 @@
 from extract_data import coins_list
 from builtins import print
 from arch import arch_model
-import plotly.express as px
 import numpy as np
-import seaborn as sns
-import matplotlib as plt
 import pandas as pd
-
 
 # RAW DATA MANIPULATION
 
@@ -57,53 +53,13 @@ drop_rows_mean = drop_rows.drop(drop_rows.columns[drop_rows.isnull().mean() > 0]
 
 print('\n Prices for the following crypto: ', drop_rows.columns[drop_rows.isnull().mean() > 0].tolist(),
       ' are dropped. \n')
-# print(cryptos_df)
 
 # Set Date Range For a Period
 
 cryptos_df = drop_rows_mean.loc['2020-04-11':'2022-04-11']
 
-
 # cryptos_df.to_csv('data/final_cryptos_dataset.csv')  # Save in csv (for Appendix)
 
-
-# Read the Crypto DataFrame and Info
-
-# cryptos_df.info()
-# cryptos_df.describe()
-
-
-# PERFORM DATA SCALING
-
-
-# Normalize Prices
-def normalize(df):
-    x = df.copy()
-    for i in x.columns:
-        x[i] = (x[i] / x[i][0])
-    return
-
-
-# DATA VISUALIZATION
-
-def interactive_plot(df, title):
-    figure = px.line(title=title)
-    for i in df.columns:
-        figure.add_scatter(x=df.index, y=df[i], name=i)
-    figure.show()
-
-
-# Interactive Plot for Daily Prices of chosen [92] Cryptos
-
-# interactive_plot(cryptos_df, 'Prices')
-
-# Set seaborn plot style
-
-sns.set_style("darkgrid")
-plt.rc("figure", figsize=(16, 6))
-plt.rc("savefig", dpi=90)
-plt.rc("font", family="sans-serif")
-plt.rc("font", size=14)
 
 # BUILD MODEL
 
@@ -125,7 +81,6 @@ def daily_return(df):
 
 daily_returns = daily_return(cryptos_df)
 
-
 # print(daily_returns)
 
 # daily_returns.to_csv('data/daily_returns.csv')  # Save in csv (for Appendix)
@@ -141,7 +96,7 @@ def constructEGARCH(p, q):
         am = arch_model(daily_returns[x], vol='EGARCH', p=p, q=q, dist='normal')
         garch_output = am.fit(disp="off", show_warning=False)
 
-        with open('results/egarch_'+str(p)+'_'+str(q)+'/' + x + '_summary.txt', 'w') as rs:
+        with open('results/egarch_' + str(p) + '_' + str(q) + '/' + x + '_summary.txt', 'w') as rs:
             rs.write(garch_output.summary().as_text())
 
         # exctract P-values
@@ -159,8 +114,9 @@ def constructEGARCH(p, q):
 
 
 # Finalize Parameters table for selected cryptos
-pEgarch = 1
-qEgarch = 1
+pEgarch = 1  # Choose parameter for p
+qEgarch = 2  # Choose parameter for q
+
 [res_params, res_pvals] = constructEGARCH(pEgarch, qEgarch)
 
 # Concatenate parameters
@@ -180,10 +136,4 @@ order_params = refined_table[["alpha", "P_alpha", "beta", "P_beta"]].dropna()
 cryptos_params = order_params.query("P_alpha != 0 and P_alpha < 0.05 and P_beta != 0 and P_beta < 0.05")
 
 # # Save final table as .xlsx and .csv
-cryptos_params.to_csv('results/tables/egarch_'+str(pEgarch)+'_'+str(qEgarch)+'.csv', index=True)
-
-
-print(cryptos_params)
-
-# correlation_matrix = daily_returns.corr()
-# print(sns.heatmap(correlation_matrix))
+cryptos_params.to_csv('results/tables/egarch_' + str(pEgarch) + '_' + str(qEgarch) + '.csv', index=True)

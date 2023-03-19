@@ -1,25 +1,26 @@
                      Constant Mean - EGARCH Model Results                     
 ==============================================================================
-Dep. Variable:         cryptoindex-io   R-squared:                       0.000
+Dep. Variable:                    mxc   R-squared:                       0.000
 Mean Model:             Constant Mean   Adj. R-squared:                  0.000
-Vol Model:                     EGARCH   Log-Likelihood:               -3007.20
-Distribution:                  Normal   AIC:                           6022.40
-Method:            Maximum Likelihood   BIC:                           6040.78
+Vol Model:                     EGARCH   Log-Likelihood:               -2583.15
+Distribution:                  Normal   AIC:                           5176.29
+Method:            Maximum Likelihood   BIC:                           5199.26
                                         No. Observations:                  731
-Date:                Wed, Mar 15 2023   Df Residuals:                      730
-Time:                        17:34:26   Df Model:                            1
+Date:                Sun, Mar 19 2023   Df Residuals:                      730
+Time:                        21:27:19   Df Model:                            1
                                Mean Model                               
 ========================================================================
                  coef    std err          t      P>|t|  95.0% Conf. Int.
 ------------------------------------------------------------------------
-mu            -0.2578  4.630e-03    -55.681      0.000 [ -0.267, -0.249]
+mu             0.2300      0.391      0.588      0.556 [ -0.536,  0.996]
                             Volatility Model                            
 ========================================================================
                  coef    std err          t      P>|t|  95.0% Conf. Int.
 ------------------------------------------------------------------------
-omega          3.7081      0.791      4.685  2.795e-06 [  2.157,  5.259]
-alpha[1]       1.4759      0.525      2.810  4.947e-03 [  0.447,  2.505]
-beta[1]        0.4073      0.147      2.764  5.706e-03 [  0.119,  0.696]
+omega          1.8266      0.617      2.961  3.063e-03 [  0.618,  3.035]
+alpha[1]       0.5781      0.221      2.618  8.842e-03 [  0.145,  1.011]
+beta[1]        0.0698      0.125      0.560      0.575 [ -0.174,  0.314]
+beta[2]        0.5224      0.156      3.352  8.033e-04 [  0.217,  0.828]
 ========================================================================
 
 Covariance estimator: robust
