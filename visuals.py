@@ -190,9 +190,9 @@ def verified_barplot(parameters, data):
     plt.savefig('figures/'+parameters+'_verified_cryptos.png')
 
 
-verified_barplot('alpha_eg11', malpha_vals)
-verified_barplot('alpha_eg12', malpha_vals)
-verified_barplot('alpha_eg21', malpha_vals)
-verified_barplot('beta_eg11', mbeta_vals)
-verified_barplot('beta_eg12', mbeta_vals)
-verified_barplot('beta_eg21', mbeta_vals)
+# verified_barplot('alpha_eg11', malpha_vals)
+# verified_barplot('alpha_eg12', malpha_vals)
+# verified_barplot('alpha_eg21', malpha_vals)
+# verified_barplot('beta_eg11', mbeta_vals)
+# verified_barplot('beta_eg12', mbeta_vals)
+# verified_barplot('beta_eg21', mbeta_vals)
