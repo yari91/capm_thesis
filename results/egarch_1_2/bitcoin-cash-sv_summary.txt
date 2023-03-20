@@ -7,7 +7,7 @@ Distribution:                  Normal   AIC:                           4538.93
 Method:            Maximum Likelihood   BIC:                           4561.90
                                         No. Observations:                  731
 Date:                Sun, Mar 19 2023   Df Residuals:                      730
-Time:                        21:27:17   Df Model:                            1
+Time:                        23:01:10   Df Model:                            1
                                Mean Model                               
 ========================================================================
                  coef    std err          t      P>|t|  95.0% Conf. Int.
