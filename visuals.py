@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import matplotlib.pyplot as plt
-# from model import daily_returns, cryptos_df
+from model import daily_returns, cryptos_df, ln_cryptos_df, drop_rows
 
 # PERFORM DATA SCALING
 
@@ -22,23 +22,24 @@ def interactive_plot(df, title):
 
 
 # # Interactive Plot for Daily Prices of chosen [92] Cryptos (make sure to un-comment the import statement)
-# interactive_plot(daily_returns, 'Log Returns of the available Cryptocurrencies')
+# interactive_plot(daily_returns, 'Daily Returns of the available Cryptocurrencies')
 # interactive_plot(cryptos_df, 'Prices of the available Cryptocurrencies for 2-year period selected')
+# interactive_plot(ln_cryptos_df, 'Log Returns of the available Cryptocurrencies')
 
 # # Pie chart of cryptos that were selected
-# dropped_cryptos = drop_rows.columns[drop_rows.isnull().mean() > 0]
-#
-# # data for pie chart
-# dropped_len = len(dropped_cryptos)  # number of excluded cryptos due to missing values
-# cryptos_len = len(cryptos_df.columns)  # number of cryptos that are included in the dates selected
-# sizes1 = [dropped_len, cryptos_len]
-# labels = ['Exluded Cryptos', 'Selected Cryptos']
-# explode = (0, 0.1)
-#
-# plt.style.use('ggplot')
-# # plt.title('Crypto distribution')
-# # plt.pie(x=sizes1, explode=explode, labels=labels, autopct='%.2f%%', shadow=True, startangle=90)
-# # plt.axis('equal')
+dropped_cryptos = drop_rows.columns[drop_rows.isnull().mean() > 0]
+
+# data for pie chart
+dropped_len = len(dropped_cryptos)  # number of excluded cryptos due to missing values
+cryptos_len = len(cryptos_df.columns)  # number of cryptos that are included in the dates selected
+sizes1 = [dropped_len, cryptos_len]
+labels = ['Exluded Cryptos', 'Selected Cryptos']
+explode = (0, 0.1)
+
+plt.style.use('ggplot')
+plt.title('Crypto distribution')
+plt.pie(x=sizes1, explode=explode, labels=labels, autopct='%.2f%%', shadow=True, startangle=90)
+plt.axis('equal')
 # # plt.savefig('figures/selected_cryptos_piechart.png')
 #
 eg11 = pd.read_csv('results/tables/egarch_1_1.csv', index_col=0)
