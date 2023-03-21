@@ -8,8 +8,8 @@ from model import daily_returns, cryptos_df, ln_cryptos_df, drop_rows
 
 # Read the Crypto DataFrame and Info
 
-# cryptos_df.info()
-# cryptos_df.describe().to_csv('data/returns_description.csv')
+cryptos_df.info()
+cryptos_df.describe().to_csv('data/returns_description.csv')
 
 
 # DATA VISUALIZATION
@@ -22,9 +22,9 @@ def interactive_plot(df, title):
 
 
 # # Interactive Plot for Daily Prices of chosen [92] Cryptos (make sure to un-comment the import statement)
-# interactive_plot(daily_returns, 'Daily Returns of the available Cryptocurrencies')
-# interactive_plot(cryptos_df, 'Prices of the available Cryptocurrencies for 2-year period selected')
-# interactive_plot(ln_cryptos_df, 'Log Returns of the available Cryptocurrencies')
+interactive_plot(daily_returns, 'Daily Returns of the available Cryptocurrencies')
+interactive_plot(cryptos_df, 'Prices of the available Cryptocurrencies for 2-year period selected')
+interactive_plot(ln_cryptos_df, 'Log Returns of the available Cryptocurrencies')
 
 # # Pie chart of cryptos that were selected
 dropped_cryptos = drop_rows.columns[drop_rows.isnull().mean() > 0]
@@ -45,43 +45,43 @@ plt.axis('equal')
 eg11 = pd.read_csv('results/tables/egarch_1_1.csv', index_col=0)
 eg12 = pd.read_csv('results/tables/egarch_1_2.csv', index_col=0)
 eg21 = pd.read_csv('results/tables/egarch_2_1.csv', index_col=0)
-# sizes2 = [cryptos_len, len(eg11)]
-# sizes3 = [cryptos_len, len(eg12)]
-# sizes4 = [cryptos_len, len(eg21)]
-#
-# fig, axs = plt.subplots(2, 2)
-# axs[0, 0].pie(x=sizes1, explode=(0.2, 0), labels=labels, autopct='%.2f%%', shadow=True, startangle=180)
-# axs[0, 0].set_title('Crypto distribution')
-# axs[0, 1].pie(x=sizes2, explode=explode, labels=labels, autopct='%.2f%%', shadow=True, startangle=90)
-# axs[0, 1].set_title('EGARCH(1,1)')
-# axs[1, 0].pie(x=sizes3, explode=explode, labels=labels, autopct='%.2f%%', shadow=True, startangle=90)
-# axs[1, 0].set_title('EGARCH(1,2)')
-# axs[1, 1].pie(x=sizes4, explode=explode, labels=labels, autopct='%.2f%%', shadow=True, startangle=90)
-# axs[1, 1].set_title('EGARCH(2,1)')
-#
-# # add a line frame between the subplots
-# lw = 0.5
-# frame1 = plt.Rectangle((0, 0), 1, 1, lw=lw, color='black', fill=False)
-# frame2 = plt.Rectangle((0, 0), 1, 1, lw=lw, color='black', fill=False)
-# frame3 = plt.Rectangle((0, 0), 1, 1, lw=lw, color='black', fill=False)
-# frame4 = plt.Rectangle((0, 0), 1, 1, lw=lw, color='black', fill=False)
-#
-# fig.add_artist(frame1)
-# fig.add_artist(frame2)
-# fig.add_artist(frame3)
-# fig.add_artist(frame4)
-#
-# frame1.set_bounds(0, 0.5, 0.5, 0.5)
-# frame2.set_bounds(0.5, 0.5, 0.5, 0.5)
-# frame3.set_bounds(0, 0, 0.5, 0.5)
-# frame4.set_bounds(0.5, 0, 0.5, 0.5)
-#
-# # # adjust the layout of the subplot grid
-# plt.tight_layout()
-#
-# # save the figure as a PNG file
-# plt.savefig('figures/pie_charts.png', dpi=300)
-# plt.show()
+sizes2 = [cryptos_len, len(eg11)]
+sizes3 = [cryptos_len, len(eg12)]
+sizes4 = [cryptos_len, len(eg21)]
+
+fig, axs = plt.subplots(2, 2)
+axs[0, 0].pie(x=sizes1, explode=(0.2, 0), labels=labels, autopct='%.2f%%', shadow=True, startangle=180)
+axs[0, 0].set_title('Crypto distribution')
+axs[0, 1].pie(x=sizes2, explode=explode, labels=labels, autopct='%.2f%%', shadow=True, startangle=90)
+axs[0, 1].set_title('EGARCH(1,1)')
+axs[1, 0].pie(x=sizes3, explode=explode, labels=labels, autopct='%.2f%%', shadow=True, startangle=90)
+axs[1, 0].set_title('EGARCH(1,2)')
+axs[1, 1].pie(x=sizes4, explode=explode, labels=labels, autopct='%.2f%%', shadow=True, startangle=90)
+axs[1, 1].set_title('EGARCH(2,1)')
+
+# add a line frame between the subplots
+lw = 0.5
+frame1 = plt.Rectangle((0, 0), 1, 1, lw=lw, color='black', fill=False)
+frame2 = plt.Rectangle((0, 0), 1, 1, lw=lw, color='black', fill=False)
+frame3 = plt.Rectangle((0, 0), 1, 1, lw=lw, color='black', fill=False)
+frame4 = plt.Rectangle((0, 0), 1, 1, lw=lw, color='black', fill=False)
+
+fig.add_artist(frame1)
+fig.add_artist(frame2)
+fig.add_artist(frame3)
+fig.add_artist(frame4)
+
+frame1.set_bounds(0, 0.5, 0.5, 0.5)
+frame2.set_bounds(0.5, 0.5, 0.5, 0.5)
+frame3.set_bounds(0, 0, 0.5, 0.5)
+frame4.set_bounds(0.5, 0, 0.5, 0.5)
+
+# # adjust the layout of the subplot grid
+plt.tight_layout()
+
+# save the figure as a PNG file
+plt.savefig('figures/pie_charts.png', dpi=300)
+plt.show()
 
 # Barplot of Cryptocurrencies
 
@@ -137,8 +137,8 @@ def grouped_barplot(egarchp, data):
     plt.show()
 
 
-# grouped_barplot('alpha', alpha_vals)
-# grouped_barplot('beta', beta_vals)
+grouped_barplot('alpha', alpha_vals)
+grouped_barplot('beta', beta_vals)
 
 # Barplot for verified cryptos
 
@@ -190,11 +190,11 @@ def verified_barplot(parameters, data):
     plt.savefig('figures/'+parameters+'_evc.png')
 
 
-# verified_barplot('alpha_eg11', malpha_vals)
-# verified_barplot('alpha_eg12', malpha_vals)
-# verified_barplot('alpha_eg21', malpha_vals)
-# verified_barplot('beta_eg11', mbeta_vals)
-# verified_barplot('beta_eg12', mbeta_vals)
-# verified_barplot('beta_eg21', mbeta_vals)
-# verified_barplot('alpha_eg11', eg11)  # Create and save figure for alpha values only for EGARCH(1,1)
-# verified_barplot('beta_eg11', eg11)   # Create and save figure for beta values only for EGARCH(1,1)
+verified_barplot('alpha_eg11', malpha_vals)
+verified_barplot('alpha_eg12', malpha_vals)
+verified_barplot('alpha_eg21', malpha_vals)
+verified_barplot('beta_eg11', mbeta_vals)
+verified_barplot('beta_eg12', mbeta_vals)
+verified_barplot('beta_eg21', mbeta_vals)
+verified_barplot('alpha_eg11', eg11)  # Create and save figure for alpha values only for EGARCH(1,1)
+verified_barplot('beta_eg11', eg11)   # Create and save figure for beta values only for EGARCH(1,1)
