@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import matplotlib.pyplot as plt
-from capm_model import daily_returns, cryptos_df
+# from capm_model import daily_returns, cryptos_df
 
 
 # PERFORM DATA SCALING
@@ -22,9 +22,9 @@ def interactive_plot(df, title):
     figure.show()
 
 
-# Interactive Plot for Daily Prices of chosen [92] Cryptos
-interactive_plot(daily_returns, 'Log Returns of the available Cryptocurrencies')
-interactive_plot(cryptos_df, 'Prices of the available Cryptocurrencies for 2 year period selected')
+# # Interactive Plot for Daily Prices of chosen [92] Cryptos (make sure to un-comment the import statement)
+# interactive_plot(daily_returns, 'Log Returns of the available Cryptocurrencies')
+# interactive_plot(cryptos_df, 'Prices of the available Cryptocurrencies for 2-year period selected')
 
 # # Pie chart of cryptos that were selected
 # dropped_cryptos = drop_rows.columns[drop_rows.isnull().mean() > 0]
@@ -186,8 +186,8 @@ def verified_barplot(parameters, data):
                  color='grey')
 
     # Add Plot Title
-    ax.set_title('Empirically verified ' + parameters.split("_")[0] + '-values for Cryptocurrencies', loc='left')
-    plt.savefig('figures/'+parameters+'_verified_cryptos.png')
+    ax.set_title('Empirically verified' + parameters.split("_")[0] + '-values', loc='left')
+    plt.savefig('figures/'+parameters+'_evc.png')
 
 
 # verified_barplot('alpha_eg11', malpha_vals)
@@ -196,3 +196,5 @@ def verified_barplot(parameters, data):
 # verified_barplot('beta_eg11', mbeta_vals)
 # verified_barplot('beta_eg12', mbeta_vals)
 # verified_barplot('beta_eg21', mbeta_vals)
+verified_barplot('alpha_eg11', eg11)  # Create and save figure for alpha values only for EGARCH(1,1)
+verified_barplot('beta_eg11', eg11)   # Create and save figure for beta values only for EGARCH(1,1)
