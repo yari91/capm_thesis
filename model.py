@@ -1,6 +1,5 @@
 # Import all neccessary packages
 from cgAPI import coins_list
-from builtins import print
 from arch import arch_model
 import numpy as np
 import pandas as pd
