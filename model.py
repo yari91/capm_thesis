@@ -1,5 +1,5 @@
 # Import all neccessary packages
-from extract_data import coins_list
+from cgAPI import coins_list
 from builtins import print
 from arch import arch_model
 import numpy as np

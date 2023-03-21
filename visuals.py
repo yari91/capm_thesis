@@ -2,8 +2,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import matplotlib.pyplot as plt
-# from capm_model import daily_returns, cryptos_df
-
+# from model import daily_returns, cryptos_df
 
 # PERFORM DATA SCALING
 
