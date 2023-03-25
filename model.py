@@ -122,7 +122,7 @@ qEgarch = 1  # Choose parameter for q
 concat_params = pd.concat(res_params, axis=1).T.rename(columns={'alpha[1]': 'alpha', 'beta[1]': 'beta'})
 
 # Refine alpha and beta values that support theory
-refined_params = concat_params.query("alpha > 0 and beta > 0 and beta <= 1")
+refined_params = concat_params.query("alpha > 0 and beta < 1")
 
 # Concatenate p-values and final parameters table including all values
 concat_pvals = pd.concat(res_pvals, axis=1).T.rename(columns={'alpha[1]': 'P_alpha', 'beta[1]': 'P_beta'})
@@ -132,7 +132,7 @@ refined_table = pd.concat([refined_params, concat_pvals], axis=1)
 order_params = refined_table[["alpha", "P_alpha", "beta", "P_beta"]].dropna()
 
 # Statistical Significant data
-cryptos_params = order_params.query("P_alpha != 0 and P_alpha < 0.05 and P_beta != 0 and P_beta < 0.05")
+cryptos_params = order_params.query("P_alpha < 0.05 and P_beta < 0.05")
 
 # # Save final table as .xlsx and .csv
 cryptos_params.to_csv('results/tables/egarch_' + str(pEgarch) + '_' + str(qEgarch) + '.csv', index=True)

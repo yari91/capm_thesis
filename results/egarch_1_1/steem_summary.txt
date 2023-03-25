@@ -6,8 +6,8 @@ Vol Model:                     EGARCH   Log-Likelihood:               -2303.03
 Distribution:                  Normal   AIC:                           4614.06
 Method:            Maximum Likelihood   BIC:                           4632.44
                                         No. Observations:                  731
-Date:                Sun, Mar 19 2023   Df Residuals:                      730
-Time:                        21:24:34   Df Model:                            1
+Date:                Sat, Mar 25 2023   Df Residuals:                      730
+Time:                        21:55:32   Df Model:                            1
                                    Mean Model                                  
 ===============================================================================
                   coef    std err          t      P>|t|        95.0% Conf. Int.

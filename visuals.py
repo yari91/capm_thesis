@@ -22,9 +22,9 @@ def interactive_plot(df, title):
 
 
 # # Interactive Plot for Daily Prices of chosen [92] Cryptos (make sure to un-comment the import statement)
-interactive_plot(daily_returns, 'Daily Returns of the available Cryptocurrencies')
-interactive_plot(cryptos_df, 'Prices of the available Cryptocurrencies for 2-year period selected')
-interactive_plot(ln_cryptos_df, 'Log Returns of the available Cryptocurrencies')
+# interactive_plot(daily_returns, 'Daily Returns of the available Cryptocurrencies')
+# interactive_plot(cryptos_df, 'Prices of the available Cryptocurrencies for 2-year period selected')
+# interactive_plot(ln_cryptos_df, 'Log Returns of the available Cryptocurrencies')
 
 # # Pie chart of cryptos that were selected
 dropped_cryptos = drop_rows.columns[drop_rows.isnull().mean() > 0]
@@ -81,7 +81,7 @@ plt.tight_layout()
 
 # save the figure as a PNG file
 plt.savefig('figures/pie_charts.png', dpi=300)
-plt.show()
+# plt.show()
 
 # Barplot of Cryptocurrencies
 
@@ -105,7 +105,7 @@ beta_vals = proved_cryptos[['beta_eg11', 'beta_eg12', 'beta_eg21']]
 # Create a function for drawing a barplots
 def grouped_barplot(egarchp, data):
     # Set up the bar plot
-    fig, ax = plt.subplots(figsize=(15, 6))
+    fg, ax = plt.subplots(figsize=(15, 6))
     bar_width = 0.3
     opacity = 0.8
 
@@ -134,11 +134,11 @@ def grouped_barplot(egarchp, data):
     # Show the plot
     plt.tight_layout()
     plt.savefig('figures/grouped_' + egarchp + '_values.png', dpi=300, bbox_inches='tight')
-    plt.show()
+    # plt.show()
 
 
-grouped_barplot('alpha', alpha_vals)
-grouped_barplot('beta', beta_vals)
+# grouped_barplot('alpha', alpha_vals)
+# grouped_barplot('beta', beta_vals)
 
 # Barplot for verified cryptos
 
@@ -153,10 +153,10 @@ mbeta_vals = merged_cryptos[['beta_eg11', 'beta_eg12', 'beta_eg21']]
 def verified_barplot(parameters, data):
 
     # Figure Size
-    fig, ax = plt.subplots(figsize=(16, 9))
+    figr, ax = plt.subplots(figsize=(18, 12))
 
     # Horizontal Bar Plot
-    ax.barh(data.index, data[parameters])
+    ax.barh(data.index, data[parameters], color='blue')
 
     # Remove axes splines
     for s in ['top', 'bottom', 'left', 'right']:
@@ -186,15 +186,16 @@ def verified_barplot(parameters, data):
                  color='grey')
 
     # Add Plot Title
-    ax.set_title('Empirically verified' + parameters.split("_")[0] + '-values', loc='left')
-    plt.savefig('figures/'+parameters+'_evc.png')
+    ax.set_title('Empirically verified ' + parameters.split("_")[0] + '-values exclusively for EGARCH(1,1)',
+                 loc='left')
+    plt.savefig('figures/'+parameters+'_egarch_1_1.png')
 
 
-verified_barplot('alpha_eg11', malpha_vals)
-verified_barplot('alpha_eg12', malpha_vals)
-verified_barplot('alpha_eg21', malpha_vals)
-verified_barplot('beta_eg11', mbeta_vals)
-verified_barplot('beta_eg12', mbeta_vals)
-verified_barplot('beta_eg21', mbeta_vals)
-verified_barplot('alpha_eg11', eg11)  # Create and save figure for alpha values only for EGARCH(1,1)
-verified_barplot('beta_eg11', eg11)   # Create and save figure for beta values only for EGARCH(1,1)
+# verified_barplot('alpha_eg11', malpha_vals)
+# verified_barplot('alpha_eg12', malpha_vals)
+# verified_barplot('alpha_eg21', malpha_vals)
+# verified_barplot('beta_eg11', mbeta_vals)
+# verified_barplot('beta_eg12', mbeta_vals)
+# verified_barplot('beta_eg21', mbeta_vals)
+# verified_barplot('alpha_eg11', eg11)  # Create and save figure for alpha values only for EGARCH(1,1)
+# verified_barplot('beta_eg11', eg11)   # Create and save figure for beta values only for EGARCH(1,1)
