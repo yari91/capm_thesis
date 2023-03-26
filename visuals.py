@@ -72,6 +72,7 @@ eg21.columns = [f"{col}_eg21" for col in eg21.columns]
 
 # Concatenate dataframes
 proved_cryptos = pd.concat([eg11, eg12, eg21], axis=1)
+# proved_cryptos.to_csv('results/empirically_valid_results')
 
 # Fill missing values with NaN
 proved_cryptos = proved_cryptos.reindex(
@@ -169,12 +170,3 @@ def verified_barplot(parameters, data):
                  loc='left')
     plt.savefig('figures/'+parameters+'_egarch_1_1.png')
 
-
-# verified_barplot('alpha_eg11', malpha_vals)
-# verified_barplot('alpha_eg12', malpha_vals)
-# verified_barplot('alpha_eg21', malpha_vals)
-# verified_barplot('beta_eg11', mbeta_vals)
-# verified_barplot('beta_eg12', mbeta_vals)
-# verified_barplot('beta_eg21', mbeta_vals)
-# verified_barplot('alpha_eg11', eg11)  # Create and save figure for alpha values only for EGARCH(1,1)
-# verified_barplot('beta_eg11', eg11)   # Create and save figure for beta values only for EGARCH(1,1)
