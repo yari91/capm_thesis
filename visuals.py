@@ -50,38 +50,19 @@ sizes3 = [cryptos_len, len(eg12)]
 sizes4 = [cryptos_len, len(eg21)]
 
 fig, axs = plt.subplots(2, 2)
-axs[0, 0].pie(x=sizes1, explode=(0.2, 0), labels=labels, autopct='%.2f%%', shadow=True, startangle=180)
+axs[0, 0].pie(x=sizes1, explode=(0.2, 0), autopct='%.2f%%', shadow=True, startangle=180)
 axs[0, 0].set_title('Crypto distribution')
-axs[0, 1].pie(x=sizes2, explode=explode, labels=labels, autopct='%.2f%%', shadow=True, startangle=90)
+axs[0, 1].pie(x=sizes2, explode=explode, autopct='%.2f%%', shadow=True, startangle=90)
 axs[0, 1].set_title('EGARCH(1,1)')
-axs[1, 0].pie(x=sizes3, explode=explode, labels=labels, autopct='%.2f%%', shadow=True, startangle=90)
+axs[1, 0].pie(x=sizes3, explode=explode, autopct='%.2f%%', shadow=True, startangle=90)
 axs[1, 0].set_title('EGARCH(1,2)')
-axs[1, 1].pie(x=sizes4, explode=explode, labels=labels, autopct='%.2f%%', shadow=True, startangle=90)
+axs[1, 1].pie(x=sizes4, explode=explode, autopct='%.2f%%', shadow=True, startangle=90)
 axs[1, 1].set_title('EGARCH(2,1)')
 
-# add a line frame between the subplots
-lw = 0.5
-frame1 = plt.Rectangle((0, 0), 1, 1, lw=lw, color='black', fill=False)
-frame2 = plt.Rectangle((0, 0), 1, 1, lw=lw, color='black', fill=False)
-frame3 = plt.Rectangle((0, 0), 1, 1, lw=lw, color='black', fill=False)
-frame4 = plt.Rectangle((0, 0), 1, 1, lw=lw, color='black', fill=False)
-
-fig.add_artist(frame1)
-fig.add_artist(frame2)
-fig.add_artist(frame3)
-fig.add_artist(frame4)
-
-frame1.set_bounds(0, 0.5, 0.5, 0.5)
-frame2.set_bounds(0.5, 0.5, 0.5, 0.5)
-frame3.set_bounds(0, 0, 0.5, 0.5)
-frame4.set_bounds(0.5, 0, 0.5, 0.5)
-
-# # adjust the layout of the subplot grid
-plt.tight_layout()
-
+plt.legend(labels, loc='lower center', ncol=2, bbox_to_anchor=(-0.7, -0.3))
+plt.show()
 # save the figure as a PNG file
 plt.savefig('figures/pie_charts.png', dpi=300)
-# plt.show()
 
 # Barplot of Cryptocurrencies
 

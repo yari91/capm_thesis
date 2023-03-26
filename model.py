@@ -56,7 +56,6 @@ print('\n Prices for the following crypto: ', drop_rows.columns[drop_rows.isnull
 # Set Date Range For a Period
 
 cryptos_df = drop_rows_mean.loc['2020-04-11':'2022-04-11']
-
 # cryptos_df.to_csv('data/final_cryptos_dataset.csv')  # Save in csv (for Appendix)
 
 
