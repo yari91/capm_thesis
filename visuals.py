@@ -72,7 +72,7 @@ eg21.columns = [f"{col}_eg21" for col in eg21.columns]
 
 # Concatenate dataframes
 proved_cryptos = pd.concat([eg11, eg12, eg21], axis=1)
-# proved_cryptos.to_csv('results/empirically_valid_results')
+# proved_cryptos.to_csv('results/empirically_valid_results.csv')
 
 # Fill missing values with NaN
 proved_cryptos = proved_cryptos.reindex(
