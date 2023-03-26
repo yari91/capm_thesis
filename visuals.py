@@ -60,7 +60,6 @@ axs[1, 1].pie(x=sizes4, explode=explode, autopct='%.2f%%', shadow=True, startang
 axs[1, 1].set_title('EGARCH(2,1)')
 
 plt.legend(labels, loc='lower center', ncol=2, bbox_to_anchor=(-0.5, -0.3))
-plt.show()
 # save the figure as a PNG file
 plt.savefig('figures/pie_charts.png', dpi=300)
 
@@ -115,7 +114,7 @@ def grouped_barplot(egarchp, data):
     # Show the plot
     plt.tight_layout()
     plt.savefig('figures/grouped_' + egarchp + '_values.png', dpi=300, bbox_inches='tight')
-    # plt.show()
+
 
 
 # grouped_barplot('alpha', alpha_vals)
