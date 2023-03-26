@@ -45,9 +45,9 @@ plt.axis('equal')
 eg11 = pd.read_csv('results/tables/egarch_1_1.csv', index_col=0)
 eg12 = pd.read_csv('results/tables/egarch_1_2.csv', index_col=0)
 eg21 = pd.read_csv('results/tables/egarch_2_1.csv', index_col=0)
-sizes2 = [cryptos_len, len(eg11)]
-sizes3 = [cryptos_len, len(eg12)]
-sizes4 = [cryptos_len, len(eg21)]
+sizes2 = [cryptos_len-len(eg11), len(eg11)]
+sizes3 = [cryptos_len-len(eg12), len(eg12)]
+sizes4 = [cryptos_len-len(eg21), len(eg21)]
 
 fig, axs = plt.subplots(2, 2)
 axs[0, 0].pie(x=sizes1, explode=(0.2, 0), autopct='%.2f%%', shadow=True, startangle=180)
@@ -59,7 +59,7 @@ axs[1, 0].set_title('EGARCH(1,2)')
 axs[1, 1].pie(x=sizes4, explode=explode, autopct='%.2f%%', shadow=True, startangle=90)
 axs[1, 1].set_title('EGARCH(2,1)')
 
-plt.legend(labels, loc='lower center', ncol=2, bbox_to_anchor=(-0.7, -0.3))
+plt.legend(labels, loc='lower center', ncol=2, bbox_to_anchor=(-0.5, -0.3))
 plt.show()
 # save the figure as a PNG file
 plt.savefig('figures/pie_charts.png', dpi=300)
