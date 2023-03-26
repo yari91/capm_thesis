@@ -116,7 +116,6 @@ def grouped_barplot(egarchp, data):
     plt.savefig('figures/grouped_' + egarchp + '_values.png', dpi=300, bbox_inches='tight')
 
 
-
 # grouped_barplot('alpha', alpha_vals)
 # grouped_barplot('beta', beta_vals)
 
@@ -136,7 +135,7 @@ def verified_barplot(parameters, data):
     figr, ax = plt.subplots(figsize=(18, 12))
 
     # Horizontal Bar Plot
-    ax.barh(data.index, data[parameters], color='blue')
+    ax.barh(data.index, data[parameters], color='blue', height=0.2)
 
     # Remove axes splines
     for s in ['top', 'bottom', 'left', 'right']:
@@ -160,7 +159,7 @@ def verified_barplot(parameters, data):
 
     # Add annotation to bars
     for i in ax.patches:
-        plt.text(i.get_width() + 0.02, i.get_y() + 0.5,
+        plt.text(i.get_width() + 0.02, i.get_y() + 0.45,
                  str(round((i.get_width()), 2)),
                  fontsize=10, fontweight='bold',
                  color='grey')
