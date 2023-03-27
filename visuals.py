@@ -45,9 +45,9 @@ plt.axis('equal')
 eg11 = pd.read_csv('results/tables/egarch_1_1.csv', index_col=0)
 eg12 = pd.read_csv('results/tables/egarch_1_2.csv', index_col=0)
 eg21 = pd.read_csv('results/tables/egarch_2_1.csv', index_col=0)
-sizes2 = [cryptos_len-len(eg11), len(eg11)]
-sizes3 = [cryptos_len-len(eg12), len(eg12)]
-sizes4 = [cryptos_len-len(eg21), len(eg21)]
+sizes2 = [cryptos_len - len(eg11), len(eg11)]
+sizes3 = [cryptos_len - len(eg12), len(eg12)]
+sizes4 = [cryptos_len - len(eg21), len(eg21)]
 
 fig, axs = plt.subplots(2, 2)
 axs[0, 0].pie(x=sizes1, explode=(0.2, 0), autopct='%.2f%%', shadow=True, startangle=180)
@@ -131,7 +131,6 @@ mbeta_vals = merged_cryptos[['beta_eg11', 'beta_eg12', 'beta_eg21']]
 
 
 def verified_barplot(parameters, data):
-
     # Figure Size
     figr, ax = plt.subplots(figsize=(18, 12))
 
@@ -166,7 +165,9 @@ def verified_barplot(parameters, data):
                  color='grey')
 
     # Add Plot Title
-    ax.set_title('Empirically verified ' + parameters.split("_")[0] + '-values exclusively for EGARCH(1,1)',
+    ax.set_title('Empirically verified ' + parameters.split("_")[0] + '-values exclusively for EGARCH(2,1)',
                  loc='left')
-    plt.savefig('figures/'+parameters+'_egarch_1_1.png')
+    plt.savefig('figures/' + parameters + '_egarch_2_1.png')
 
+
+# verified_barplot('alpha_eg21', eg21)
